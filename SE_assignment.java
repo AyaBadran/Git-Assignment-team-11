@@ -17,7 +17,7 @@ public class SE_ass {
     /**
      * @param args the command line arguments
      */
-    public void getMedian()
+    public static void getMedian()
     {
          int arrSize,Numbers;
         double median;
@@ -97,6 +97,7 @@ public class SE_ass {
                 case 1:
                 {
                     // call your func. here
+                    most_repeated(arr);
                     break;
                 }case 2:
                 {
@@ -111,16 +112,73 @@ public class SE_ass {
                     // call your func. here
                     break;
                 }
+             case 6:
+                {
+                    // call your func. here
+                    Shift_Array(arr); 
+                    break;
+                }
+
             case 15:
                 {
                     getMedian();
                     break;
                 }
-                
+
+                case 18:
+                {
+                    // call your func. here
+                    getMedian();
+                    Shift_Array(arr);
+                    most_repeated(arr);
+                    break;
+                }
+          
             }
             
         }while(choice != 0);
         
     
     }
+    public static void most_repeated(char[]x)
+    {
+        int count=0;
+        int a=0;
+        char greater='0';
+        for(int q=0;q<x.length;q++)
+        {
+        for(int j=0;j<x.length;j++)
+        {
+        if(x[q]==x[j])
+         {count++;}
+       }
+       if(count>a)
+       { a=count;
+         greater=x[q];
+       }count=0;
+           }
+        System.out.println("The most repeated value is: "+greater);
+    
+    }
+       //20160204 Shift Array
+    public static void Shift_Array(char arr[])
+    {
+        //Mohamed Reda
+        //20160204
+        char first = arr[0];
+        for(int i=0;i<arr.length-1;i++)
+        {
+            arr[i]=arr[i+1];
+        }
+       arr[arr.length-1]=first;
+       String s = "";
+        for(int i=0;i<arr.length;i++)
+        {
+            s+=arr[i] +"";
+            
+        }
+       System.out.println("The Shifted array is: " + s);
+    }
+    
 }
+
